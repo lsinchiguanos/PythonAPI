@@ -46,8 +46,7 @@ function saveCliente() {
             });
         }
     });
-}
-;
+};
 
 function limpiar_form() {
     document.getElementById('cedulaDeIdentidad').value = '';
@@ -55,5 +54,4 @@ function limpiar_form() {
     document.getElementById('apellidoMaterno').value = '';
     document.getElementById('primerNombre').value = '';
     document.getElementById('segundoNombre').value = '';
-}
-;
+};
