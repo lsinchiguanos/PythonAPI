@@ -8,7 +8,7 @@ from datetime import datetime
 
 # Especificacion la utilización de Flask
 app=Flask(__name__)
-CORS(app, resources={r"/api/*"}, origins=['*'] , supports_credentials=True )
+CORS(app, resources={r"/api/*"}, origins=['*'] , supports_credentials=True)
 # Datos de conexión a la base de datos
 app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:12345@localhost:5432/bonos'
 # Desactivando las notificaciones de alteración al esquema de la base de datos
