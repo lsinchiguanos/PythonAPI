@@ -55,7 +55,7 @@ class Cliente(db.Model):
 # Tabla Establecimiento
 class Establecimiento(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
-    nombre = db.Column(db.String(15), nullable=False, unique=True)
+    nombre = db.Column(db.String(150), nullable=False, unique=True)
     cupo = db.Column(db.Integer(), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
     updated_at = db.Column(db.DateTime, onupdate=datetime.now())

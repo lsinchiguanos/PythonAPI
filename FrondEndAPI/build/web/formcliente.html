@@ -49,27 +49,27 @@ and open the template in the editor.
                         <div class="container px-5 my-5">
                             <form id="contactForm">
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="cedulaDeIdentidad" type="text" placeholder="Cédula de identidad" data-sb-validations="required" />
+                                    <input class="form-control" id="cedulaDeIdentidad" type="text" placeholder="Cédula de identidad" minlength="10" maxlength="15" data-sb-validations="required" />
                                     <label for="cedulaDeIdentidad">Cédula de identidad</label>
                                     <div class="invalid-feedback" data-sb-feedback="cedulaDeIdentidad:required">Cédula de identidad is required.</div>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="apellidoPaterno" type="text" placeholder="Apellido paterno" data-sb-validations="required" />
+                                    <input class="form-control" id="apellidoPaterno" type="text" placeholder="Apellido paterno" minlength="2" maxlength="150" data-sb-validations="required" />
                                     <label for="apellidoPaterno">Apellido paterno</label>
                                     <div class="invalid-feedback" data-sb-feedback="apellidoPaterno:required">Apellido paterno is required.</div>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="apellidoMaterno" type="text" placeholder="Apellido materno" data-sb-validations="required" />
+                                    <input class="form-control" id="apellidoMaterno" type="text" placeholder="Apellido materno" minlength="3" maxlength="150" data-sb-validations="required" />
                                     <label for="apellidoMaterno">Apellido materno</label>
                                     <div class="invalid-feedback" data-sb-feedback="apellidoMaterno:required">Apellido materno is required.</div>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="primerNombre" type="text" placeholder="Primer nombre" data-sb-validations="required" />
+                                    <input class="form-control" id="primerNombre" type="text" placeholder="Primer nombre" minlength="3" maxlength="150" data-sb-validations="required" />
                                     <label for="primerNombre">Primer nombre</label>
                                     <div class="invalid-feedback" data-sb-feedback="primerNombre:required">Primer nombre is required.</div>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="segundoNombre" type="text" placeholder="Segundo nombre" data-sb-validations="" />
+                                    <input class="form-control" id="segundoNombre" type="text" placeholder="Segundo nombre" minlength="3" maxlength="150" data-sb-validations="" />
                                     <label for="segundoNombre">Segundo nombre</label>
                                 </div>
                                 <div class="d-none" id="submitSuccessMessage">
