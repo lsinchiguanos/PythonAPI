@@ -20,9 +20,12 @@ and open the template in the editor.
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/styleOther.css" rel="stylesheet" type="text/css"/>
         <!-- Fullcalendar-->
         <script src="fullcalendar/main.js" type="text/javascript" ></script>
         <link href="fullcalendar/main.css" rel="stylesheet" type="text/css"/>
+        <!-- Fullcalendar idiomas-->
+        <script src="fullcalendar/locales-all.js" type="text/javascript"></script>
     </head>
     <body>
         <section>
@@ -36,34 +39,146 @@ and open the template in the editor.
                 </div>
             </nav>
         </section>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <div class="container">
-            <div id='calendar'></div>
+        <div id="calendar-container">
+            <div id="calendar"></div>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="agendaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Registro de turno</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container px-5 my-5">
+                            <form id="contactForm">
+                                <div class="form-floating mb-3">
+                                    <select class="form-select form-select-sm"" id="cliente" aria-label="Cliente">
+                                    </select>
+                                    <label for="cliente">Cliente</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <select class="form-select form-select-sm"" id="establecimiento" aria-label="Establecimiento">
+                                    </select>
+                                    <label for="establecimiento">Establecimiento</label>
+                                </div>
+                                <div class="d-none" id="submitErrorMessage">
+                                    <div class="text-center text-danger mb-3">Error sending message!</div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="agendaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitle">Registro de Turno</h5>
+                        <button type="button" id="btn_cerrar"class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="container px-5 my-5">
+                        <form id="contactForm">
+                            <div class="form-floating mb-3">
+                                <select class="form-select" id="cliente" aria-label="Cliente">
+                                </select>
+                                <label for="cliente">Cliente</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <select class="form-select" id="establecimiento" aria-label="Establecimiento">
+                                </select>
+                                <label for="establecimiento">Establecimiento</label>
+                            </div>
+                            <div class="d-none" id="submitErrorMessage">
+                                <div class="text-center text-danger mb-3">Error sending message!</div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="btnsave" class="btn btn-primary">Registrar</button>
+                        <button type="button" id="btnupdate" class="btn btn-warning" onclick="actualizar(id_actualizar)">Actualizar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Sweetalert2-->
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
         <!-- JQuery-->
         <script src="js/jquery-3.6.0.js" type="text/javascript"></script>
-        <script src="js/personalscript.js" type="text/javascript"></script>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 var calendarEl = document.getElementById('calendar');
                 var calendar = new FullCalendar.Calendar(calendarEl, {
-                    initialView: 'dayGridMonth'
+                    dayMaxEventRows: true,
+                    views: {
+                        dayGridMonth: {
+                            dayMaxEventRows: 3
+                        }
+                    },
+                    locale: 'es',
+                    initialView: 'dayGridMonth',
+                    dateClick: function (info) {
+                        console.log(info.dateStr);
+                        $('#agendaModal').modal("show");
+                    },
+                    eventClick: function (info) {
+                        console.log(info.event.title);
+                        console.log(info.event.startStr);
+                        console.log(info.event.extendedProps.cliente_id);
+                        console.log(info.event.extendedProps.establecimiento_id);
+                    },
+                    events: [{
+                            title: 'event 1',
+                            start: '2021-08-10',
+                            cliente_id: '1',
+                            establecimiento_id: '1'
+                        },
+                        {
+                            title: 'event 2',
+                            start: '2021-08-10',
+                            cliente_id: '1',
+                            establecimiento_id: '1'
+                        },
+                        {
+                            title: 'event 3',
+                            start: '2021-08-10',
+                            cliente_id: '1',
+                            establecimiento_id: '1'
+                        },
+                        {
+                            title: 'event 4',
+                            start: '2021-08-10',
+                            cliente_id: '1',
+                            establecimiento_id: '1'
+                        },
+                        {
+                            title: 'event 5',
+                            start: '2021-08-10',
+                            cliente_id: '1',
+                            establecimiento_id: '1'
+                        },
+                        {
+                            title: 'event 6',
+                            start: '2021-08-10',
+                            cliente_id: '1',
+                            establecimiento_id: '1'
+                        }
+                    ]
                 });
                 calendar.render();
             });
