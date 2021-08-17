@@ -1,24 +1,43 @@
 # PythonAPI
 ## Table of Contents
-1. [General Info](#general-info)
-2. [Technologies](#technologies)
-3. [Installation](#installation)
+1. [Introducción](#introducción)
+2. [Requisitos](#requisitos)
+3. [Clonación](#clonación)
 4. [Collaboration](#collaboration)
 5. [FAQs](#faqs)
-### General Info
+### Introducción
 ***
-Write down the general informations of your project. It is worth to always put a project status in the Readme file. This is where you can add it. 
-### Screenshot
-![Image text](https://www.united-internet.de/fileadmin/user_upload/Brands/Downloads/Logo_IONOS_by.jpg)
-## Technologies
+De acuerdo con la descripción de la actividad WEB SERVICES – PYTHON: Realizar una aplicación distribuida en la cual el FrontEnd consuma un Web Services que el BackEnd sea Python. Debe ser un ejemplo interesante. Se planteo el desarrollo de una App Web enfocada en la separación de turnos para el cobro de bono, debido a que los diferentes corresponsales no bancarios (CNB) poseen cupos limitados (50).
+<br/> La limitante de cupos disponibles provoca que muchos acreedores madruguen a buscar cupos en los CNB de su localidad en ocasiones cerca del lugar de residencia, pero en casos no alcanzan cupo y terminan haciendo filas fuera de los corresponsable bancarios autorizados (Banco Pacifico, BanEcuador, etc.) generando costos en transportación y tiempo.
+Los CNB en diversas situaciones suelen realizar un listado de los clientes acreedores del bono con la finalidad de reservar un cupo acorde al último digito de la cédula de identidad. La generación del listado requiere de tiempo y disponibilidad del encargado o propietario del negocio, aparte del riesgo de perder el listado o la inasistencia del cliente en la fecha establecida.
+<br/> Para solucionar parte de estos problemas, se llegó a crear una App Web para la reserva de cupos, teniendo en cuenta que deba ser distribuida y cuyos llamados sean mediante una APIREST FULL realizada en Python.
+
+### Requisitos
 ***
-A list of technologies used within the project:
-* [Technologie name](https://example.com): Version 12.3 
-* [Technologie name](https://example.com): Version 2.34
-* [Library name](https://example.com): Version 1234
-## Installation
+La aplicación se realizó utilizando python 3.7.7.
+<br/> 
+<br/> Los módulos necesarios para ejecutar el repositorio son:
+* click: Version 8.0.1
+* colorama: Version 0.4.4
+* Flask: Version 2.0.1
+* Flask-Cors: Version 3.0.10
+* Flask-SQLAlchemy: Version 2.5.1
+* greenlet: Version 1.1.0
+* importlib-metadata: Version 4.6.3
+* itsdangerous: Version 2.0.1
+* Jinja2: Version 3.0.1
+* MarkupSafe: Version 2.0.1
+* marshmallow: Version 3.13.0
+* psycopg2: Version 2.9.1
+* six: Version 1.16.0
+* SQLAlchemy: Version 1.4.22
+* typing-extensions: Version 3.10.0.0
+* Werkzeug: Version 2.0.1
+* zipp: Version 3.5.0
+
+## Clonación
 ***
-A little intro about the installation. 
+Recomendamos utilizar Github Desktop debido a su fácil manejo a la hora de clonar repositorios. El presente repositorio contiene la carpeta de FrondEnd (FrondEndAPI) y la del BackEnd (ServerAPI).
 ```
 $ git clone https://example.com
 $ cd ../path/to/the/file
