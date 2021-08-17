@@ -3,15 +3,13 @@
 1. [Introducción](#introducción)
 2. [Requisitos](#requisitos)
 3. [Clonación](#clonación)
-4. [Collaboration](#collaboration)
-5. [FAQs](#faqs)
+4. [Instalación](#instalación)
 ### Introducción
 ***
 De acuerdo con la descripción de la actividad WEB SERVICES – PYTHON: Realizar una aplicación distribuida en la cual el FrontEnd consuma un Web Services que el BackEnd sea Python. Debe ser un ejemplo interesante. Se planteo el desarrollo de una App Web enfocada en la separación de turnos para el cobro de bono, debido a que los diferentes corresponsales no bancarios (CNB) poseen cupos limitados (50).
 <br/> La limitante de cupos disponibles provoca que muchos acreedores madruguen a buscar cupos en los CNB de su localidad en ocasiones cerca del lugar de residencia, pero en casos no alcanzan cupo y terminan haciendo filas fuera de los corresponsable bancarios autorizados (Banco Pacifico, BanEcuador, etc.) generando costos en transportación y tiempo.
 Los CNB en diversas situaciones suelen realizar un listado de los clientes acreedores del bono con la finalidad de reservar un cupo acorde al último digito de la cédula de identidad. La generación del listado requiere de tiempo y disponibilidad del encargado o propietario del negocio, aparte del riesgo de perder el listado o la inasistencia del cliente en la fecha establecida.
 <br/> Para solucionar parte de estos problemas, se llegó a crear una App Web para la reserva de cupos, teniendo en cuenta que deba ser distribuida y cuyos llamados sean mediante una APIREST FULL realizada en Python.
-
 ### Requisitos
 ***
 La aplicación se realizó utilizando python 3.7.7.
@@ -34,36 +32,39 @@ La aplicación se realizó utilizando python 3.7.7.
 * typing-extensions: Version 3.10.0.0
 * Werkzeug: Version 2.0.1
 * zipp: Version 3.5.0
-
-## Clonación
+* virtualenv: Version 20.6.0
+### Clonación
 ***
-Recomendamos utilizar Github Desktop debido a su fácil manejo a la hora de clonar repositorios. El presente repositorio contiene la carpeta de FrondEnd (FrondEndAPI) y la del BackEnd (ServerAPI).
-```
-$ git clone https://example.com
-$ cd ../path/to/the/file
-$ npm install
-$ npm start
-```
-Side information: To use the application in a special environment use ```lorem ipsum``` to start
-## Collaboration
+Recomendamos utilizar Github Desktop debido a su fácil manejo a la hora de clonar repositorios. El presente repositorio contiene la carpeta de FrondEnd (FrondEndAPI) y la del BackEnd (ServerAPI), por tal motivo clonaremos el repositorio con las partes necesarias. Para ello:
+<br/>
+<br/>
+1.- Copiaremos la dirección del repositorio desde la página, o damos clic en la opción Abrir.
+<br/>
+<br/>
+![Opciones para copiar el repositorio.](img/clon1.jpeg)
+<br/>
+<br/>
+2.- Abriremos Github Desktop y nos dirigimos a Archivos > Clonar repositorio.
+<br/>
+<br/>
+![Opciones para copiar el repositorio.](img/clon2.jpg)
+<br/>
+<br/>
+3.- Nos vamos a URL, pegamos la dirección y escogemos el lugar donde deseamos clonar el repositorio.
+<br/>
+<br/>
+![Opciones para copiar el repositorio.](img/clon3.jpg)
+### Intalación
 ***
-Give instructions on how to collaborate with your project.
-> Maybe you want to write a quote in this part. 
-> It should go over several rows?
-> This is how you do it.
-## FAQs
-***
-A list of frequently asked questions
-1. **This is a question in bold**
-Answer of the first question with _italic words_. 
-2. __Second question in bold__ 
-To answer this question we use an unordered list:
-* First point
-* Second Point
-* Third point
-3. **Third question in bold**
-Answer of the third question with *italic words*.
-4. **Fourth question in bold**
-| Headline 1 in the tablehead | Headline 2 in the tablehead | Headline 3 in the tablehead |
-|:--------------|:-------------:|--------------:|
-| text-align left | text-align center | text-align right |
+En caso de no tener instalado los componentes dentro del ordenador, procederemos a instalar el entorno:
+<br/>
+``` > pip install virtualenv```
+<br/>
+Teniendo instalado el entorno virtual, procedemos activarlo.
+<br/>
+``` > .\venv\Script\activate.bat```
+<br/>
+Dentro del entorno virtual, instalaremos los módulos.
+<br/>
+``` (venv) > pip install flask flask_restful flask_sqlalchemy flask_marshmallow marshmallow-sqlalchemy flask-cors```
+<br/>
